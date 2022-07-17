@@ -10,16 +10,28 @@ import {
      LastTransaction,
      } from './styles'
 
-export function HighlightCard(){
+     interface IProps{
+        title: string;
+        amount: string;
+        lastTransaction: string
+        type: 'up' | 'down' | 'total';
+     }
+
+export function HighlightCard({
+    type,
+    title, 
+    amount,
+    lastTransaction
+} : IProps ){
     return (
         <Container>
                 <Header>
-                    <Title>Entrada</Title>
+                    <Title>{title}</Title>
                     <Icon name='arrow-up-circle'/>
                 </Header>
                 <Footer>
-                    <Amount>17.400,00</Amount>
-                    <LastTransaction>Ultima entrada dia 16 de julho</LastTransaction>
+                    <Amount>{amount}</Amount>
+                    <LastTransaction>{lastTransaction}</LastTransaction>
                 </Footer>
         </Container>
     )
