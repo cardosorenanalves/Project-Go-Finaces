@@ -76,7 +76,7 @@ export const Icon = styled(Feather)`
  font-size: ${RFValue(24)}px;
 `;
 
-export const LogoutButton = styled(BorderlessButton)``;
+export const LogoutButton = styled.TouchableOpacity``;
 
 export const HighlightCards = styled.ScrollView.attrs({
     horizontal: true,
