@@ -1,7 +1,8 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useFocusEffect } from "@react-navigation/native";
+import { useFocusEffect} from "@react-navigation/native";
 import React, { useCallback, useEffect, useState } from "react";
 import { ActivityIndicator } from "react-native";
+import { useTheme } from "styled-components";
 import { HighlightCard } from "../../components/HighlightCard";
 import { LastTransaction } from "../../components/HighlightCard/styles";
 import { TransactionCard, TransactionCardProps } from "../../components/TransactionsCard";
@@ -21,7 +22,8 @@ import {
     Title,
     TransactionList,
     Transactions,
-    LogoutButton
+    LogoutButton,
+    LoadContainer
 } from "./styles";
 
 export interface DataListProps extends TransactionCardProps{
@@ -40,6 +42,8 @@ interface HighligthData{
 }
 
 export function Dashboard(){
+
+    const theme = useTheme()
     const [isLoading, setIsLoading] = useState(true);
     const [data, setData] = useState<DataListProps[]>([])
     const [highlightData, setHighligthData] = useState<HighligthData>({} as HighligthData);
@@ -146,7 +150,13 @@ export function Dashboard(){
     return(
         <Container>
         {
-           isLoading ? <ActivityIndicator color='blue'/> :
+           isLoading ?  
+           <LoadContainer>
+                <ActivityIndicator 
+                color={theme.colors.primary}
+                size='large'
+                />
+            </LoadContainer>:
              <>
                 <Header>
                     <UserWrapper>

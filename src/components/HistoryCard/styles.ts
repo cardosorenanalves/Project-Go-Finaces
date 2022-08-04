@@ -20,12 +20,12 @@ export const Container = styled.View<ContainerProps>`
   margin-bottom: 8px;
 `;
 
-export const Title = styled.View`
+export const Title = styled.Text`
 font-family:${({theme}) => theme.fonts.regular};
 font-size: ${RFValue(15)}px;
 `;
 
-export const Amount = styled.View`
+export const Amount = styled.Text`
 font-family:${({theme}) => theme.fonts.bold};
 font-size: ${RFValue(15)}px;
 `;
