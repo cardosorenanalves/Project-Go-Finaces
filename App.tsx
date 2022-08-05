@@ -6,6 +6,8 @@ import 'intl';
 import 'intl/locale-data/jsonp/pt-BR'
 import {NavigationContainer} from '@react-navigation/native'
 
+
+
 import {
   useFonts,
   Poppins_400Regular,
@@ -17,6 +19,9 @@ import { ThemeProvider,} from 'styled-components';
 import theme from './src/global/styles/theme'
 import { AppRoutes } from './src/routes/appRoutes';
 import { StatusBar } from 'react-native';
+
+import { SignIn } from './src/pages/SignIn';
+import { AuthProvider } from './src/hooks/auth';
 
 export default function App() {
 
@@ -35,7 +40,11 @@ export default function App() {
         backgroundColor="transparent"
          barStyle='light-content'
          translucent/>
-        <AppRoutes/>
+
+         <AuthProvider>
+            <SignIn />
+         </AuthProvider>
+
       </NavigationContainer>   
      </ThemeProvider>
      )
