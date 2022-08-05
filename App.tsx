@@ -4,7 +4,7 @@ import AppLoading from 'expo-app-loading';
 import 'react-native-gesture-handler'
 import 'intl';
 import 'intl/locale-data/jsonp/pt-BR'
-import {NavigationContainer} from '@react-navigation/native'
+import {Routes} from './src/routes'
 
 
 
@@ -20,7 +20,7 @@ import theme from './src/global/styles/theme'
 import { AppRoutes } from './src/routes/appRoutes';
 import { StatusBar } from 'react-native';
 
-import { SignIn } from './src/pages/SignIn';
+
 import { AuthProvider } from './src/hooks/auth';
 
 export default function App() {
@@ -35,17 +35,13 @@ export default function App() {
   }
   return(
     <ThemeProvider theme={theme}>
-      <NavigationContainer>
-        <StatusBar
-        backgroundColor="transparent"
-         barStyle='light-content'
-         translucent/>
-
+        <StatusBar 
+        backgroundColor="transparent" 
+        barStyle='light-content' 
+        translucent/>
          <AuthProvider>
-            <SignIn />
+            <Routes />
          </AuthProvider>
-
-      </NavigationContainer>   
      </ThemeProvider>
      )
 }

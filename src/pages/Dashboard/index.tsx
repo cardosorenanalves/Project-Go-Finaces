@@ -6,6 +6,7 @@ import { useTheme } from "styled-components";
 import { HighlightCard } from "../../components/HighlightCard";
 import { LastTransaction } from "../../components/HighlightCard/styles";
 import { TransactionCard, TransactionCardProps } from "../../components/TransactionsCard";
+import { useAuth } from "../../hooks/auth";
 
 
 import { 
@@ -44,6 +45,7 @@ interface HighligthData{
 export function Dashboard(){
 
     const theme = useTheme()
+    const { signOut } = useAuth()
     const [isLoading, setIsLoading] = useState(true);
     const [data, setData] = useState<DataListProps[]>([])
     const [highlightData, setHighligthData] = useState<HighligthData>({} as HighligthData);
@@ -169,7 +171,7 @@ export function Dashboard(){
                                     <UserName>Renan</UserName>
                             </User>
                     </UserInfo>
-                    <LogoutButton onPress={()=>{ console.log('olá')}}>
+                    <LogoutButton onPress={signOut}>
                         <Icon name='power'/>
                     </LogoutButton>                   
                     </UserWrapper>
